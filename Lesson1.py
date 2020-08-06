@@ -149,13 +149,16 @@ print last 6 characters of variable danwei
 danwei='Kunming Institute of Botany'
 """
 
+danwei[-6:]
+danwei[:7]
+danwei[:]
 
 a='abc'
 b=123
 print(a+b)
 print(a+str(b))
 
-danwei='Kunming Institute of Botany'
+danwei='Kunming institute of Botany'
 print(danwei.title())
 print(danwei.upper())
 print(danwei.lower())
