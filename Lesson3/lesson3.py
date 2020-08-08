@@ -34,7 +34,7 @@ yilab = {'Rong':'Postdoc','Xiaogang':'Student','Tingshuang':'Teacher'}
 #In [26]: new_dict
 #Out[26]: {'b': 2, 'c': 3}
 
-#Also works for sets
+#Also works for sets, need to use .copy() or copy.copy(x)
 #In [29]: old_set = set(set(range(9)))
 #In [30]: old_set
 #Out[30]: {0, 1, 2, 3, 4, 5, 6, 7, 8}
