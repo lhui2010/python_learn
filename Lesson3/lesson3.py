@@ -1,6 +1,6 @@
 #读
 with open("file") as fh:
-	for line in fh:
+    for line in fh:
 print (line)
 
 #写
@@ -9,11 +9,41 @@ fh.write()
 
 #同时读写
 with open("lesson2.fasta") as file_1, \
-open("output.txt", "w") as file_2:
-file_2.write(file_1.read())
+        open("output.txt", "w") as file_2:
+    file_2.write(file_1.read())
 
 #字典
 yilab = {'Rong':'Postdoc','Xiaogang':'Student','Tingshuang':'Teacher'}
+
+# copy of a dict
+#In [20]: old_dict = {"a":1, "b":2, "c":3}
+#
+#In [21]: new_dict = old_list
+#
+#In [22]: new_dict
+#Out[22]: {'a': 1, 'b': 2, 'c': 3}
+#
+#In [23]: old_dict
+#Out[23]: {'a': 1, 'b': 2, 'c': 3}
+#
+#In [24]: del(old_dict['a'])
+#
+#In [25]: old_dict
+#Out[25]: {'b': 2, 'c': 3}
+#
+#In [26]: new_dict
+#Out[26]: {'b': 2, 'c': 3}
+
+#Also works for sets
+#In [29]: old_set = set(set(range(9)))
+#In [30]: old_set
+#Out[30]: {0, 1, 2, 3, 4, 5, 6, 7, 8}
+#In [31]: new_set = old_set
+#In [32]: new_set.add(9)
+#In [33]: old_set
+#Out[33]: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+#In [34]: new_set
+#Out[34]: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 
 #常用函数和方法
 del(yilab["Rong"])
