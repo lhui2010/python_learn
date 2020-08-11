@@ -51,6 +51,6 @@ if __name__ == '__main__':
     # exit()
     for i in cds_dict:
         pep = trans_pro(cds_dict[i])
-        print(i + "\n" + pep)
+        print('>' + i + "\n" + pep)
 
 # pep_dict = cds_dict.copy()

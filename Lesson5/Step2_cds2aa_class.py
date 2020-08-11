@@ -45,30 +45,21 @@ class FastaIO():
             else:
                 del self.seq[k]
 
-    def translate_seq(self, input_seq):
-        """翻译cds生成氨基酸序列"""
-        n = 3
-        peptide = ''
-        for i in range(0, len(input_seq), n):
-            codon = input_seq[i:i + n]
-            if codon not in codon_dict:
-                peptide += 'X'
-            else:
-                peptide += codon_dict[codon]
-        return (peptide)
-
-    def get_pep(self):
-        for i in self.seq:
-            self.pep[i] = self.translate_seq(self.seq[i])
-        return self.pep
+    def print_pep_by_name(self, gene_name):
+        """翻译指定基因名称的cds dict生成氨基酸序列"""
+        self.seq[gene_name].translate()
+        formated_pep = ">{}\n{}\n".format(gene_name, self.seq[gene_name].pep)
+        return formated_pep
 
     def print_pep(self):
-        for i in self.pep:
-            print(">{}\n{}".format(i, self.pep[i]))
+        """打印所有cds dict对应的氨基酸序列"""
+        buffer = ""
+        for i in self.seq:
+            buffer += self.print_pep_by_name(i)
+        print(buffer, end ='')
 
 
 if __name__ == "__main__":
     my_fasta = FastaIO("/Users/liuhui/PycharmProjects/python_learn/Lesson3/homework_KEYI/Homework.fasta")
     my_fasta.keep_complete()
-    my_fasta.get_pep()
     my_fasta.print_pep()

@@ -1,13 +1,19 @@
 import argparse
 
 from Step2_cds2aa_class import FastaIO
+from multiprocessing import Pool
 
 
 class FastaIOParallel(FastaIO):
-    def get_pep_parallel(self, threads=4):
-        for i in self.seq:
-            self.pep[i] = self.translate_seq(self.seq[i])
-        return self.pep
+    def __init__(self, fasta_file_name):
+        super().__init__(fasta_file_name)
+
+    def print_pep_parallel(self, threads=2):
+        """翻译cds dict生成氨基酸序列"""
+        self.print = ""
+        with Pool(threads) as p:
+            result = p.map(self.print_pep_by_name, self.seq.keys())
+        print("".join(result), end="")
 
 
 if __name__ == "__main__":
@@ -16,14 +22,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Translate cds to pep"
     )
-    parser.print_help()
+    #parser.print_help()
     # add positional arguments
     parser.add_argument('input', help="Input file of cds")
     # reads from sys.argv and extract args
     args = parser.parse_args()
 
     input_file_name = args.input
-    my_fasta = FastaIO(input_file_name)
-    my_fasta.keep_complete()
-    my_fasta.get_pep()
-    my_fasta.print_pep()
+    my_fasta = FastaIOParallel(input_file_name)
+    my_fasta.print_pep_parallel()

@@ -10,7 +10,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Translate cds to pep"
     )
-    parser.print_help()
+    #parser.print_help()
     # add positional arguments
     parser.add_argument('input', help="Input file of cds")
     # reads from sys.argv and extract args
@@ -18,6 +18,4 @@ if __name__ == "__main__":
 
     input_file_name = args.input
     my_fasta = FastaIO(input_file_name)
-    my_fasta.keep_complete()
-    my_fasta.get_pep()
     my_fasta.print_pep()
