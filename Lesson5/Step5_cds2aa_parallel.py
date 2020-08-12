@@ -12,7 +12,7 @@ class FastaIOParallel(FastaIO):
         """翻译cds dict生成氨基酸序列"""
         self.print = ""
         with Pool(threads) as p:
-            result = p.map(self.print_pep_by_name, self.seq.keys())
+            result = p.map(self.get_pep_fasta_by_name, self.seq.keys())
         print("".join(result), end="")
 
 

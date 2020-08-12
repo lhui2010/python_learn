@@ -43,6 +43,7 @@ if __name__ == '__main__':
     test_motor = MotorBikes()
     print("---First Benchmarking---")
     test_motor.print_all()
+    test_motor.set_speed('yamaha', 100)
     print(test_motor.fastest())
     test_motor.append('yamaha', 196)
     print("---Benchmarking After adding yamaha---")

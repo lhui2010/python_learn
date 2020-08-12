@@ -45,21 +45,22 @@ class FastaIO():
             else:
                 del self.seq[k]
 
-    def print_pep_by_name(self, gene_name):
+    def get_pep_fasta_by_name(self, gene_name):
         """翻译指定基因名称的cds dict生成氨基酸序列"""
         self.seq[gene_name].translate()
-        formated_pep = ">{}\n{}\n".format(gene_name, self.seq[gene_name].pep)
-        return formated_pep
+        formated_fasta_string = ">{}\n{}\n".format(gene_name, self.seq[gene_name].pep)
+        return formated_fasta_string
 
     def print_pep(self):
         """打印所有cds dict对应的氨基酸序列"""
         buffer = ""
         for i in self.seq:
-            buffer += self.print_pep_by_name(i)
-        print(buffer, end ='')
+            buffer += self.get_pep_fasta_by_name(i)
+        print(buffer, end='')
+        return buffer
 
 
 if __name__ == "__main__":
     my_fasta = FastaIO("/Users/liuhui/PycharmProjects/python_learn/Lesson3/homework_KEYI/Homework.fasta")
-    my_fasta.keep_complete()
+#    my_fasta.keep_complete()
     my_fasta.print_pep()

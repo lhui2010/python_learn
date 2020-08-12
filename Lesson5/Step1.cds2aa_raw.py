@@ -45,7 +45,7 @@ def trans_pro(input_key):
 #trans_pro(key_test)
 
 if __name__ == '__main__':
-    cds_dict = reads_fasta('/Users/liuhui/PycharmProjects/python_learn/Lesson3/homework_KEYI/Homework.fasta')
+    cds_dict = reads_fasta('../Lesson3/Homework/Home_work.fasta')
     #print(list(cds_dict.keys()))
     # print(list(cds_dict.values()))
     # exit()

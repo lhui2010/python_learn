@@ -18,6 +18,10 @@ parser.add_argument('arg2')
 # reads from sys.argv and extract args
 args = parser.parse_args()
 
+if args.name is None:
+    parser.print_help()
+    exit()
+
 # python Step4.1.argparse_hello_world.py
 
 print(args.name)
